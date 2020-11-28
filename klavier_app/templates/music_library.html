@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Michal Pruszkowski">
+    <meta name="description" content="Klavier App music library. Browse thoroughout our music database.">
+    <meta name="keywords" content="klavier, virtual, piano, web, browser, free, learning, practice">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<meta name="robots" content="all">
+	<title>Klavier - Music Library</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+<main class="container-fluid">
+
+	<nav class="library_nav">
+		<a href="{{ url_for('music_library', category = 'classic') }}">Classic</a>
+		<a href="{{ url_for('music_library', category = 'folklore') }}">Folklore</a>
+		<a href="{{ url_for('music_library', category = 'other') }}">Other</a>
+	</nav>
+
+	<section class="library_list">
+		{% for row in rows %}
+
+		<a href="{{url_for('game_screen', pieceID = row[0])}}">
+			<div class="library_tile">
+				<img src="{{ url_for('static', filename='images/') }}{{row[2]}}" alt="row[2]">
+				<h4>{{ row[1] }}</h4>
+			</div>
+		</a>
+
+		{% endfor %}
+	</section>
+<!--
+	<section class="library_pagination">
+		<a href=""></a>
+		<a href=""></a>
+		<a href=""></a>
+	</section>
+-->
+<footer>
+	<p>Klavier is an educational project for Napier University's course: Web Design and Development. All digital media used for this project WERE NOT and WILL NOT be used for any other purposes than education.
+	<br>
+	<b>Klavier author: Michal Pruszkowski, 3rd year student - Napier University</b>
+	</p>
+</footer>
+
+</main>
+</body>
+</html>
