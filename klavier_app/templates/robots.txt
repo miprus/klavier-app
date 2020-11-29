@@ -1,0 +1,7 @@
+Sitemap: (...)/sitemap.xml
+User-agent: *
+Dissallow: /static/
+Dissallow: klavier_app.py
+Dissallow: db_ini.py
+Dissallow: klavierDB.db
+Disallow: sitemap.xml
